@@ -1,4 +1,4 @@
-package com.mikalai.algo.collections.stack;
+package com.mikalai.algo.collections.queue;
 
 import java.util.Iterator;
 
