@@ -14,4 +14,6 @@ public abstract class Sort {
         return v.compareTo(w) < 0;
     }
 
+    public abstract void sort(Comparable[] a);
+
 }

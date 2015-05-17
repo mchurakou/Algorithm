@@ -5,7 +5,7 @@ package com.mikalai.algo.sorting;
  */
 public class Selection extends Sort {
 
-    public static void sort(Comparable[] a) {
+    public void sort(Comparable[] a) {
         int N = a.length;
         for (int i = 0; i < N; i++) {
             int min = i;

@@ -26,7 +26,8 @@ public class Example {
     public static void main(String[] args) {
         Integer[] a = new Integer[]{5, 2, 5, 1, 66, 10, 11, 22};
 //        Selection.sort(a);
-        Insertion.sort(a);
+//        new Insertion().sort(a);
+        new Shell().sort(a);
         assert isSorted(a);
         show(a);
     }
