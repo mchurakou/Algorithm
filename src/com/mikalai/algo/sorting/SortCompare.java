@@ -31,6 +31,8 @@ public class SortCompare {
         Sort shell = new Shell();
         Sort merge = new Merge();
         Sort mergeBU = new MergeBU();
+        Sort quick = new Quick();
+
 
 
         double selectionResult = 0;
@@ -39,6 +41,7 @@ public class SortCompare {
         double shellResult = 0;
         double mergeResult = 0;
         double mergeBUResult = 0;
+        double quickResult = 0;
 
         for (int j = 0; j < t; j++) {
             for (int i = 0; i < n; i++) {
@@ -51,6 +54,7 @@ public class SortCompare {
             shellResult += time(shell, Arrays.copyOf(a, a.length));
             mergeResult += time(merge, Arrays.copyOf(a, a.length));
             mergeBUResult += time(mergeBU, Arrays.copyOf(a, a.length));
+            quickResult += time(quick, Arrays.copyOf(a, a.length));
 
 
         }
@@ -61,6 +65,7 @@ public class SortCompare {
         System.out.println("shellResult: " + shellResult);
         System.out.println("mergeResult: " + mergeResult);
         System.out.println("mergeBUResult: " + mergeBUResult);
+        System.out.println("quickResult: " + quickResult);
 
 
     }

@@ -27,7 +27,7 @@ public class Example {
         Integer[] a = new Integer[]{5, 2, 5, 1, 66, 10, 11, 22};
 //        Selection.sort(a);
 //        new Insertion().sort(a);
-        new MergeBU().sort(a);
+        new Quick().sort(a);
         assert isSorted(a);
         show(a);
     }
