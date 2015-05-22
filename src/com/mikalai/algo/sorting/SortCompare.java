@@ -32,6 +32,7 @@ public class SortCompare {
         Sort merge = new Merge();
         Sort mergeBU = new MergeBU();
         Sort quick = new Quick();
+        Sort heap = new HeapSort();
 
 
 
@@ -42,6 +43,7 @@ public class SortCompare {
         double mergeResult = 0;
         double mergeBUResult = 0;
         double quickResult = 0;
+        double heapResult = 0;
 
         for (int j = 0; j < t; j++) {
             for (int i = 0; i < n; i++) {
@@ -55,6 +57,7 @@ public class SortCompare {
             mergeResult += time(merge, Arrays.copyOf(a, a.length));
             mergeBUResult += time(mergeBU, Arrays.copyOf(a, a.length));
             quickResult += time(quick, Arrays.copyOf(a, a.length));
+            heapResult += time(heap, Arrays.copyOf(a, a.length));
 
 
         }
@@ -66,6 +69,7 @@ public class SortCompare {
         System.out.println("mergeResult: " + mergeResult);
         System.out.println("mergeBUResult: " + mergeBUResult);
         System.out.println("quickResult: " + quickResult);
+        System.out.println("heapResult: " + heapResult);
 
 
     }
