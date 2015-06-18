@@ -3,7 +3,7 @@ package com.mikalai.algo.search;
 /**
  * Created by mikalai on 30.05.2015.
  */
-public class SequatialSearchST<Key, Value> {
+public class SequentialSearchST<Key, Value> {
 
     private Node first;
 
@@ -41,7 +41,7 @@ public class SequatialSearchST<Key, Value> {
     }
 
     public static void main(String[] args) {
-        SequatialSearchST map = new SequatialSearchST<String, String>();
+        SequentialSearchST map = new SequentialSearchST<String, String>();
         map.put("s1", "s11");
         map.put("s2", "s22");
         map.put("s2", "s33");

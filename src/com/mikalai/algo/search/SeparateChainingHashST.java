@@ -7,14 +7,14 @@ public class SeparateChainingHashST<Key, Value> {
 
     private int N;
     private int M;
-    private SequatialSearchST<Key, Value>[] st;
+    private SequentialSearchST<Key, Value>[] st;
 
     public SeparateChainingHashST(int m) {
         M = m;
 
-        st = (SequatialSearchST<Key, Value>[]) new SequatialSearchST[M];
+        st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[M];
         for (int i = 0; i < st.length; i++) {
-            st[i] = new SequatialSearchST();
+            st[i] = new SequentialSearchST();
 
         }
     }
