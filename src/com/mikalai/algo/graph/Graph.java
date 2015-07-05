@@ -40,7 +40,7 @@ public class Graph {
     }
 
     public Iterable<Integer> adj(int v) {
-        return adj(v);
+        return adj[v];
     }
 
 }
