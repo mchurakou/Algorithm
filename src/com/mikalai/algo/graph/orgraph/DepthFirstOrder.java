@@ -1,19 +1,24 @@
 package com.mikalai.algo.graph.orgraph;
 
-import com.mikalai.algo.graph.Graph;
-
 import java.util.Stack;
 
 /**
- * Created by mikalai on 17.08.2015.
+ * Created by mikalai on 23.08.2015.
  */
-public class DirectedDFS {
-
+public class DepthFirstOrder {
     private boolean[] marked;
 
-    public DirectedDFS(Digraph g, int s) {
+    public Stack<Integer> getReversePost() {
+        return reversePost;
+    }
+
+    private Stack<Integer> reversePost;
+
+    public DepthFirstOrder(Digraph g) {
+        reversePost = new Stack<Integer>();
         marked = new boolean[g.V()];
-        dfs(g, s);
+        for (int v = 0; v < g.V(); v++)
+            if (!marked(v)) dfs(g, v);
     }
 
     private void dfs(Digraph g, int v) {
@@ -25,6 +30,7 @@ public class DirectedDFS {
             }
 
         }
+        reversePost.push(v);
     }
 
     public boolean marked(int w) {
@@ -34,21 +40,4 @@ public class DirectedDFS {
     public boolean hasPathTo(int v) {
         return marked[v];
     }
-
-
-    public static void main(String[] args) {
-        Digraph g = new Digraph(6);
-
-        g.addEdge(0, 1);
-        g.addEdge(1, 2);
-        g.addEdge(2, 3);
-        g.addEdge(3, 4);
-        g.addEdge(4, 5);
-
-        DirectedDFS dps = new DirectedDFS(g, 0);
-
-        System.out.println(dps.hasPathTo(5));
-
-    }
-
 }
