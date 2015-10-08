@@ -6,11 +6,11 @@ import java.util.Stack;
  * Created by mikalai on 05.10.2015.
  */
 public abstract class SP {
-    private final EdgeWeightedDigraph g;
-    private final int s;
+    protected final EdgeWeightedDigraph g;
+    protected final int s;
 
-    private DirectedEdge[] edgeTo;
-    private double[] distTo;
+    protected DirectedEdge[] edgeTo;
+    protected double[] distTo;
 
     public SP(EdgeWeightedDigraph g, int s) {
         this.g = g;
