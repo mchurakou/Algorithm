@@ -3,15 +3,13 @@ package com.mikalai.algo.sorting;
 /**
  * Created by mikalai on 18.05.2015.
  */
-public class Merge extends Sort {
+public class MergeAscendingRecursive extends Sort {
     protected static Comparable[] aux;
 
 
     @Override
     public void sort(Comparable[] a) {
         aux = new Comparable[a.length];
-
-
         sort(a, 0, a.length - 1);
     }
 

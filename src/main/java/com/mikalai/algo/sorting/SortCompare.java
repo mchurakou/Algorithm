@@ -29,8 +29,8 @@ public class SortCompare {
         Sort insertion = new Insertion();
         Sort bubble = new Bubble();
         Sort shell = new Shell();
-        Sort merge = new Merge();
-        Sort mergeBU = new MergeBU();
+        Sort merge = new MergeAscendingRecursive();
+        Sort mergeBU = new MergeDescending();
         Sort quick = new Quick();
         Sort heap = new HeapSort();
 
@@ -62,12 +62,12 @@ public class SortCompare {
 
         }
 
-        System.out.println("bubbleResult: " + bubbleResult);
-        System.out.println("selectionResult: " + selectionResult);
-        System.out.println("insertionResult: " + insertionResult);
-        System.out.println("shellResult: " + shellResult);
-        System.out.println("mergeResult: " + mergeResult);
-        System.out.println("mergeBUResult: " + mergeBUResult);
+        System.out.println("Bubble: " + bubbleResult);
+        System.out.println("Selection: " + selectionResult);
+        System.out.println("Insertion: " + insertionResult);
+        System.out.println("Shell: " + shellResult);
+        System.out.println("MergeAscendingRecursive: " + mergeResult);
+        System.out.println("MergeDescending: " + mergeBUResult);
         System.out.println("quickResult: " + quickResult);
         System.out.println("heapResult: " + heapResult);
 
