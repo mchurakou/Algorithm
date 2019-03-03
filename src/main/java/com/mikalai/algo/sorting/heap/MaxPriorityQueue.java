@@ -1,13 +1,19 @@
 package com.mikalai.algo.sorting.heap;
 
+import com.mikalai.algo.sorting.Sort;
+
 /**
  * Created by mikalai on 20.05.2015.
+ * k=0 - not used
+ * parent of k - k/2
+ * children of k - 2k and 2k + 1
+ *
  */
-public class MaxPQ<Key extends Comparable<Key>> {
+public class MaxPriorityQueue<Key extends Comparable<Key>>{
     private Key[] pq;
     private int N = 0;
 
-    public MaxPQ(int maxN) {
+    public MaxPriorityQueue(int maxN) {
         pq = (Key[]) new Comparable[maxN + 1];
     }
 
@@ -67,7 +73,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     public static void main(String[] args) {
-        MaxPQ<Integer> pq = new MaxPQ<>(10);
+        MaxPriorityQueue<Integer> pq = new MaxPriorityQueue<>(10);
 
         pq.insert(4);
         pq.insert(4);
