@@ -1,4 +1,4 @@
-package com.mikalai.algo.search;
+package com.mikalai.algo.search.tree;
 
 /**
  * Created by mikalai on 07.06.2015.
