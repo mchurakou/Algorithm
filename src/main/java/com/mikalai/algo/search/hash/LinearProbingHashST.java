@@ -1,4 +1,4 @@
-package com.mikalai.algo.search;
+package com.mikalai.algo.search.hash;
 
 /**
  * Created by Mikalai_Churakou on 6/18/2015.

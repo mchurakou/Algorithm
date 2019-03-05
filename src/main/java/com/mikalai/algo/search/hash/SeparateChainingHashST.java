@@ -1,4 +1,6 @@
-package com.mikalai.algo.search;
+package com.mikalai.algo.search.hash;
+
+import com.mikalai.algo.search.SequentialSearchST;
 
 /**
  * Created by mikalai on 15.06.2015.
