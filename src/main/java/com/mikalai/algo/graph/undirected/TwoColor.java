@@ -1,4 +1,4 @@
-package com.mikalai.algo.graph;
+package com.mikalai.algo.graph.undirected;
 
 /**
  * Created by mikalai on 13.07.2015.
@@ -10,10 +10,10 @@ public class TwoColor {
     public boolean isTwoColorable = true;
 
     public TwoColor(Graph g) {
-        marked = new boolean[g.V()];
-        color = new boolean[g.V()];
+        marked = new boolean[g.getVertexCount()];
+        color = new boolean[g.getVertexCount()];
 
-        for (int s = 0; s < g.V(); s++) {
+        for (int s = 0; s < g.getVertexCount(); s++) {
             if (!marked[s]) {
                 dfs(g, s);
 
@@ -24,7 +24,7 @@ public class TwoColor {
 
     private void dfs(Graph g, int v) {
         marked[v] = true;
-        for (int w : g.adj(v)) {
+        for (int w : g.adjacentVertexes(v)) {
             if (!marked[w]) {
                 color[w] = !color[v];
                 dfs(g, w);

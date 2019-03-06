@@ -1,9 +1,5 @@
 package com.mikalai.algo.graph.orgraph;
 
-import com.mikalai.algo.graph.Graph;
-
-import java.util.Stack;
-
 /**
  * Created by mikalai on 17.08.2015.
  */

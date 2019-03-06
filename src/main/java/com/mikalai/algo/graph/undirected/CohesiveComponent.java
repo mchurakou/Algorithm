@@ -1,4 +1,4 @@
-package com.mikalai.algo.graph;
+package com.mikalai.algo.graph.undirected;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -12,9 +12,9 @@ public class CohesiveComponent {
     private int count;
 
     public CohesiveComponent(Graph g) {
-        marked = new boolean[g.V()];
-        componentId = new int[g.V()];
-        for (int s = 0; s < g.V(); s++) {
+        marked = new boolean[g.getVertexCount()];
+        componentId = new int[g.getVertexCount()];
+        for (int s = 0; s < g.getVertexCount(); s++) {
             if (!marked[s]) {
                 dfs(g, s);
                 count++;
@@ -27,7 +27,7 @@ public class CohesiveComponent {
     private void dfs(Graph g, int v) {
         marked[v] = true;
         componentId[v] = count;
-        for (int w : g.adj(v)) {
+        for (int w : g.adjacentVertexes(v)) {
             if (!marked[w]) {
                 dfs(g, w);
             }
@@ -76,7 +76,7 @@ public class CohesiveComponent {
             components[i] = new LinkedHashSet<Integer>();
         }
 
-        for (int i = 0; i < g.V(); i++) {
+        for (int i = 0; i < g.getVertexCount(); i++) {
             components[cc.componentId(i)].add(i);
 
         }

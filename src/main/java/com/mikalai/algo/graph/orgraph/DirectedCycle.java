@@ -1,7 +1,5 @@
 package com.mikalai.algo.graph.orgraph;
 
-import com.mikalai.algo.graph.Graph;
-
 import java.util.Stack;
 
 /**

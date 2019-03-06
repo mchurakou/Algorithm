@@ -1,4 +1,4 @@
-package com.mikalai.algo.graph;
+package com.mikalai.algo.graph.undirected;
 
 import com.mikalai.algo.collections.queue.LinkedListQueue;
 
@@ -10,17 +10,17 @@ import java.util.Stack;
 public class BreadthFirstPaths {
     private boolean[] marked;
     private int[] edgeTo;
-    private final int s;
+    private final int startVertex;
 
-    public BreadthFirstPaths(Graph g, int s) {
-        marked = new boolean[g.V()];
-        edgeTo = new int[g.V()];
-        this.s = s;
-        bfs(g, s);
+    public BreadthFirstPaths(Graph g, int startVertex) {
+        marked = new boolean[g.getVertexCount()];
+        edgeTo = new int[g.getVertexCount()];
+        this.startVertex = startVertex;
+        bfs(g, startVertex);
     }
 
     private void bfs(Graph g, int s) {
-        LinkedListQueue<Integer> queue = new LinkedListQueue<Integer>();
+        LinkedListQueue<Integer> queue = new LinkedListQueue<>();
 
         marked[s] = true;
 
@@ -28,7 +28,7 @@ public class BreadthFirstPaths {
 
         while (!queue.isEmpty()) {
             int v = queue.dequeue();
-            for (int w : g.adj(v)) {
+            for (int w : g.adjacentVertexes(v)) {
                 if (!marked[w]) {
                     edgeTo[w] = v;
                     marked[w] = true;
@@ -45,10 +45,10 @@ public class BreadthFirstPaths {
         if (!hasPathTo(v)) return null;
 
         Stack<Integer> path = new Stack<Integer>();
-        for (int x = v; x != s; x = edgeTo[x]) {
+        for (int x = v; x != startVertex; x = edgeTo[x]) {
             path.push(x);
         }
-        path.push(s);
+        path.push(startVertex);
         return path;
     }
 

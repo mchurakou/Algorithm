@@ -1,4 +1,4 @@
-package com.mikalai.algo.graph;
+package com.mikalai.algo.graph.undirected;
 
 /**
  * Created by mikalai on 13.07.2015.
@@ -8,9 +8,9 @@ public class Cycle {
     private boolean hasCycle;
 
     public Cycle(Graph g) {
-        marked = new boolean[g.V()];
+        marked = new boolean[g.getVertexCount()];
 
-        for (int s = 0; s < g.V(); s++) {
+        for (int s = 0; s < g.getVertexCount(); s++) {
             if (!marked[s]) {
                 dfs(g, s, s);
 
@@ -21,7 +21,7 @@ public class Cycle {
 
     private void dfs(Graph g, int v, int u) {
         marked[v] = true;
-        for (int w : g.adj(v)) {
+        for (int w : g.adjacentVertexes(v)) {
             if (!marked[w]) {
 
                 dfs(g, w, v);
