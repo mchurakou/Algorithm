@@ -1,4 +1,4 @@
-package com.mikalai.algo.graph.orgraph;
+package com.mikalai.algo.graph.directed;
 
 /**
  * Created by mikalai on 23.08.2015.

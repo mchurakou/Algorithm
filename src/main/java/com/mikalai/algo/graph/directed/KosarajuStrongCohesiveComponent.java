@@ -1,20 +1,20 @@
-package com.mikalai.algo.graph.orgraph;
+package com.mikalai.algo.graph.directed;
 
 import java.util.*;
 
 /**
  * Created by mikalai on 24.08.2015.
  */
-public class KosarajuSCC {
+public class KosarajuStrongCohesiveComponent {
     private boolean[] marked;
     private int[] id;
     private int count;
 
-    public KosarajuSCC(Digraph d) {
+    public KosarajuStrongCohesiveComponent(Digraph d) {
         marked = new boolean[d.V()];
         id = new int[d.V()];
         DepthFirstOrder order = new DepthFirstOrder(d.reverse());
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         order.getReversePost().forEach((el) -> {
             list.add(el);
         });
@@ -96,7 +96,7 @@ public class KosarajuSCC {
         d.addEdge(8, 9);
 
 
-        KosarajuSCC scc = new KosarajuSCC(d);
+        KosarajuStrongCohesiveComponent scc = new KosarajuStrongCohesiveComponent(d);
 
         System.out.println(scc.count() + " components");
         Set<Integer>[] components = (Set<Integer>[]) new Set[scc.count()];

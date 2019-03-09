@@ -1,4 +1,4 @@
-package com.mikalai.algo.graph.orgraph;
+package com.mikalai.algo.graph.directed;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

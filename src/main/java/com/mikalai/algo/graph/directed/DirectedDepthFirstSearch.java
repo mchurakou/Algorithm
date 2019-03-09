@@ -1,13 +1,13 @@
-package com.mikalai.algo.graph.orgraph;
+package com.mikalai.algo.graph.directed;
 
 /**
  * Created by mikalai on 17.08.2015.
  */
-public class DirectedDFS {
+public class DirectedDepthFirstSearch {
 
     private boolean[] marked;
 
-    public DirectedDFS(Digraph g, int s) {
+    public DirectedDepthFirstSearch(Digraph g, int s) {
         marked = new boolean[g.V()];
         dfs(g, s);
     }
@@ -41,7 +41,7 @@ public class DirectedDFS {
         g.addEdge(3, 4);
         g.addEdge(4, 5);
 
-        DirectedDFS dps = new DirectedDFS(g, 0);
+        DirectedDepthFirstSearch dps = new DirectedDepthFirstSearch(g, 0);
 
         System.out.println(dps.hasPathTo(5));
 

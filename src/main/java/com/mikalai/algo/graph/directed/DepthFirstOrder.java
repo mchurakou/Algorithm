@@ -1,4 +1,6 @@
-package com.mikalai.algo.graph.orgraph;
+package com.mikalai.algo.graph.directed;
+
+import com.mikalai.algo.graph.directed.Digraph;
 
 import java.util.Stack;
 
