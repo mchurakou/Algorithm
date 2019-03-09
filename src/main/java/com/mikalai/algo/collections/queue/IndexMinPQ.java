@@ -1,4 +1,4 @@
-package com.mikalai.algo.graph.shortpath;
+package com.mikalai.algo.collections.queue;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

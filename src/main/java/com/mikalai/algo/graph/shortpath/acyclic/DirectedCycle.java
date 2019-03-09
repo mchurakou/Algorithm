@@ -1,6 +1,5 @@
 package com.mikalai.algo.graph.shortpath.acyclic;
 
-import com.mikalai.algo.graph.orgraph.Digraph;
 import com.mikalai.algo.graph.shortpath.DirectedEdge;
 import com.mikalai.algo.graph.shortpath.EdgeWeightedDigraph;
 

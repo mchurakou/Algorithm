@@ -1,15 +1,15 @@
 package com.mikalai.algo.graph.shortpath;
 
 
-import com.mikalai.algo.graph.weighted.Edge;
+import com.mikalai.algo.collections.queue.IndexMinPQ;
 
-public class DijkstraSP extends SP {
+public class DijkstraShortPath extends ShortPath {
 
     private IndexMinPQ<Double> pq;
 
-    public DijkstraSP(EdgeWeightedDigraph g, int s) {
+    public DijkstraShortPath(EdgeWeightedDigraph g, int s) {
         super(g, s);
-        pq = new IndexMinPQ<Double>(g.getV());
+        pq = new IndexMinPQ<>(g.getV());
 
         for (int i = 0; i < g.getV(); i++) {
             distTo[i] = Double.POSITIVE_INFINITY;
@@ -59,11 +59,11 @@ public class DijkstraSP extends SP {
         ewd.addEdge(new DirectedEdge(6, 0, 0.58));
         ewd.addEdge(new DirectedEdge(6, 4, 0.93));
 
-        SP sp = new DijkstraSP(ewd, 0);
+        ShortPath shortPath = new DijkstraShortPath(ewd, 0);
 
-        System.out.println("DIST:" + sp.distTo(6));
-        if (sp.hasPathTo(6)) {
-            for (DirectedEdge e : sp.pathTo(6)) {
+        System.out.println("DIST:" + shortPath.distTo(6));
+        if (shortPath.hasPathTo(6)) {
+            for (DirectedEdge e : shortPath.pathTo(6)) {
                 System.out.println(e + " ");
             }
         }

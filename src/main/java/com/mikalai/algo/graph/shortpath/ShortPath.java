@@ -5,14 +5,14 @@ import java.util.Stack;
 /**
  * Created by mikalai on 05.10.2015.
  */
-public abstract class SP {
+public abstract class ShortPath {
     protected final EdgeWeightedDigraph g;
     protected final int s;
 
     protected DirectedEdge[] edgeTo;
     protected double[] distTo;
 
-    public SP(EdgeWeightedDigraph g, int s) {
+    public ShortPath(EdgeWeightedDigraph g, int s) {
         this.g = g;
         this.s = s;
 
@@ -31,7 +31,7 @@ public abstract class SP {
     public Iterable<DirectedEdge> pathTo(int v) {
         if (!hasPathTo(v)) return null;
 
-        Stack<DirectedEdge> path = new Stack<DirectedEdge>();
+        Stack<DirectedEdge> path = new Stack<>();
 
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.getFrom()]) {
             path.push(e);

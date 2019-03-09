@@ -3,16 +3,16 @@ package com.mikalai.algo.graph.shortpath.acyclic;
 
 import com.mikalai.algo.graph.shortpath.DirectedEdge;
 import com.mikalai.algo.graph.shortpath.EdgeWeightedDigraph;
-import com.mikalai.algo.graph.shortpath.SP;
+import com.mikalai.algo.graph.shortpath.ShortPath;
 
 import java.util.*;
 
 /**
  * Created by mikalai on 12.10.2015.
  */
-public class AcyclicSP extends SP {
+public class AcyclicShortPath extends ShortPath {
 
-    public AcyclicSP(EdgeWeightedDigraph g, int s) {
+    public AcyclicShortPath(EdgeWeightedDigraph g, int s) {
         super(g, s);
 
         for (int i = 0; i < g.getV(); i++) {
@@ -24,7 +24,7 @@ public class AcyclicSP extends SP {
         Topological top = new Topological(g);
 
 
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
 
         for (int v : top.order) {
             list.add(v);
@@ -66,11 +66,11 @@ public class AcyclicSP extends SP {
         ewd.addEdge(new DirectedEdge(6, 4, 0.93));
 
 
-        SP sp = new AcyclicSP(ewd, 5);
+        ShortPath shortPath = new AcyclicShortPath(ewd, 5);
 
-        System.out.println("DIST:" + sp.distTo(0));
-        if (sp.hasPathTo(0)) {
-            for (DirectedEdge e : sp.pathTo(0)) {
+        System.out.println("DIST:" + shortPath.distTo(0));
+        if (shortPath.hasPathTo(0)) {
+            for (DirectedEdge e : shortPath.pathTo(0)) {
                 System.out.println(e + " ");
             }
         }
