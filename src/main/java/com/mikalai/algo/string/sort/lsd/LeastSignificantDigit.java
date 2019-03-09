@@ -3,22 +3,22 @@ package com.mikalai.algo.string.sort.lsd;
 /**
  * Created by mikalai on 26.01.2016.
  */
-public class Lsd {
+public class LeastSignificantDigit {
 
-    public static void sort(String[] a, int W) {
+    public static void sort(String[] a, int countOfSymbols) {
         int N = a.length;
-        int R = 256;
+        int ALPHABET_SIZE = 256;
         String[] aux = new String[N];
 
 
-        for (int d = W - 1; d >= 0; d--) {
-            int[] count = new int[R + 1]; // Вычисляем счетчник повторений
+        for (int d = countOfSymbols - 1; d >= 0; d--) {
+            int[] count = new int[ALPHABET_SIZE + 1]; // Вычисляем счетчник повторений
 
             for (int i = 0; i < N; i++) {
                 count[a[i].charAt(d) + 1]++;
             }
 
-            for (int r = 0; r < R; r++) { // Преобразование счетчиков в индексы
+            for (int r = 0; r < ALPHABET_SIZE; r++) { // Преобразование счетчиков в индексы
                 count[r + 1] += count[r];
             }
 
@@ -36,7 +36,7 @@ public class Lsd {
     public static void main(String[] args) {
         String[] ar = {"12345", "23345", "98387", "55667"};
 
-        sort(ar, 4);
+        sort(ar, 5);
 
 
         for (String s : ar) {
