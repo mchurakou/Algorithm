@@ -42,7 +42,7 @@ public class EdgeWeightedGraph {
     }
 
     public Iterable<Edge> edges() {
-        Set<Edge> b = new LinkedHashSet<Edge>();
+        Set<Edge> b = new LinkedHashSet<>();
         for (int v = 0; v < V; v++) {
             for (Edge e : adj[v]) {
                 if (e.other(v) > v)

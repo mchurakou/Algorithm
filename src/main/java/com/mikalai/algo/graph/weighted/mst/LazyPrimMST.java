@@ -1,19 +1,22 @@
-package com.mikalai.algo.graph.weighted;
+package com.mikalai.algo.graph.weighted.mst;
 
+
+import com.mikalai.algo.graph.weighted.Edge;
+import com.mikalai.algo.graph.weighted.EdgeWeightedGraph;
 
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class LazyPrimMST {
+public class LazyPrimMST implements MinimailSkeletonTree {
     private boolean[] marked;
     private Queue<Edge> mst;
     private PriorityQueue<Edge> pq;
 
     public LazyPrimMST(EdgeWeightedGraph G) {
-        pq = new PriorityQueue<Edge>();
+        pq = new PriorityQueue<>();
         marked = new boolean[G.V()];
-        mst = new LinkedList<Edge>();
+        mst = new LinkedList<>();
 
         visit(G, 0);
         while (!pq.isEmpty()) {
@@ -73,7 +76,7 @@ public class LazyPrimMST {
         graph.addEdge(new Edge(6, 0, .58));
         graph.addEdge(new Edge(6, 4, .93));
 
-        LazyPrimMST mst = new LazyPrimMST(graph);
+        MinimailSkeletonTree mst = new LazyPrimMST(graph);
         for (Edge e : mst.edges()) {
             System.out.println(e);
         }

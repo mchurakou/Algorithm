@@ -1,6 +1,8 @@
-package com.mikalai.algo.graph.weighted;
+package com.mikalai.algo.graph.weighted.mst;
 
 
+import com.mikalai.algo.graph.weighted.Edge;
+import com.mikalai.algo.graph.weighted.EdgeWeightedGraph;
 import com.mikalai.algo.unionfind.WeightedUnionUF;
 
 import java.util.Collection;
@@ -8,12 +10,12 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class KruskalMST {
+public class KruskalMST implements MinimailSkeletonTree {
     private Queue<Edge> mst;
 
     public KruskalMST(EdgeWeightedGraph G) {
-        Queue<Edge> pq = new PriorityQueue<Edge>((Collection<? extends Edge>) G.edges());
-        mst = new LinkedList<Edge>();
+        Queue<Edge> pq = new PriorityQueue<>((Collection<? extends Edge>) G.edges());
+        mst = new LinkedList<>();
 
         WeightedUnionUF uf = new WeightedUnionUF(G.V());
 
@@ -27,11 +29,13 @@ public class KruskalMST {
         }
     }
 
+    @Override
     public Iterable<Edge> edges() {
         return mst;
     }
 
 
+    @Override
     public double weight() {
         double res = 0;
         for (Edge e : mst) {
@@ -59,7 +63,7 @@ public class KruskalMST {
         graph.addEdge(new Edge(6, 0, .58));
         graph.addEdge(new Edge(6, 4, .93));
 
-        KruskalMST mst = new KruskalMST(graph);
+        MinimailSkeletonTree mst = new KruskalMST(graph);
         for (Edge e : mst.edges()) {
             System.out.println(e);
         }
