@@ -10,14 +10,14 @@ import java.util.*;
 /**
  * Created by mikalai on 12.10.2015.
  */
+
+//works for negative weighted edges but without cycles
 public class AcyclicShortPath extends ShortPath {
 
     public AcyclicShortPath(EdgeWeightedDigraph g, int s) {
         super(g, s);
 
-        for (int i = 0; i < g.getV(); i++) {
-            distTo[i] = Double.POSITIVE_INFINITY;
-        }
+
 
         distTo[s] = 0;
 

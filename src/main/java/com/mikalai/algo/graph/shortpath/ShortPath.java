@@ -1,5 +1,6 @@
 package com.mikalai.algo.graph.shortpath;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -18,6 +19,7 @@ public abstract class ShortPath {
 
         edgeTo = new DirectedEdge[g.getE()];
         distTo = new double[g.getE()];
+        Arrays.fill(distTo, Double.POSITIVE_INFINITY);
     }
 
     public double distTo(int v) {

@@ -1,42 +1,44 @@
 package com.mikalai.algo.graph.shortpath;
 
 
-import com.mikalai.algo.collections.queue.IndexMinPQ;
+
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.PriorityQueue;
 //works for none negative weighted edges
-public class DijkstraShortPath extends ShortPath {
+public class DijkstraShortPath2 extends ShortPath {
 
-    private IndexMinPQ<Double> pq;
+    private final PriorityQueue<Map.Entry<Integer, Double>> pq;
 
-    public DijkstraShortPath(EdgeWeightedDigraph g, int s) {
+    public DijkstraShortPath2(EdgeWeightedDigraph g, int s) {
         super(g, s);
-        pq = new IndexMinPQ<>(g.getV());
-
         distTo[s] = 0;
 
-        pq.insert(s, 0.0);
+        pq = new PriorityQueue<>(Map.Entry.comparingByValue());
+
+        pq.add(new AbstractMap.SimpleEntry<>(s, distTo[s]));
 
         while (!pq.isEmpty()) {
-            relax(g, pq.delMin());
+             relax(pq.poll().getKey());
         }
+
     }
 
-    private void relax(EdgeWeightedDigraph g, int v) {
-        for (DirectedEdge e : g.adj(v)) {
-            int w = e.getTo();
-            if (distTo[w] > distTo[v] + e.getWeight()) {
-                distTo[w] = distTo[v] + e.getWeight();
-                edgeTo[w] = e;
+    private void relax(final Integer from) {
+        for (DirectedEdge edge : g.adj(from)) {
+            if (distTo[edge.getTo()] > distTo[edge.getFrom()] + edge.getWeight()) {
+                distTo[edge.getTo()] = distTo[edge.getFrom()] + edge.getWeight();
+                edgeTo[edge.getTo()] = edge;
 
-                if (pq.contains(w)) {
-                    pq.changeKey(w, distTo[w]);
-                } else {
-                    pq.insert(w, distTo[w]);
-                }
+                AbstractMap.SimpleEntry<Integer, Double> entry = new AbstractMap.SimpleEntry<>(edge.getTo(), edge.getWeight());
+
+                pq.removeIf(e -> e.getKey() ==  edge.getTo());
+                pq.add(entry);
             }
-
         }
 
     }
+
 
     public static void main(String[] args) {
         EdgeWeightedDigraph ewd = new EdgeWeightedDigraph(8);
@@ -56,7 +58,7 @@ public class DijkstraShortPath extends ShortPath {
         ewd.addEdge(new DirectedEdge(6, 0, 0.58));
         ewd.addEdge(new DirectedEdge(6, 4, 0.93));
 
-        ShortPath shortPath = new DijkstraShortPath(ewd, 0);
+        ShortPath shortPath = new DijkstraShortPath2(ewd, 0);
 
         System.out.println("DIST:" + shortPath.distTo(6));
         if (shortPath.hasPathTo(6)) {
