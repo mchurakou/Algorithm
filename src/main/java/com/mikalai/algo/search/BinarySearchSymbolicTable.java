@@ -3,13 +3,13 @@ package com.mikalai.algo.search;
 /**
  * Created by mikalai on 30.05.2015.
  */
-public class BinarySearchST<Key extends Comparable<Key>, Value> {
+public class BinarySearchSymbolicTable<Key extends Comparable<Key>, Value> {
 
     private Key[] keys;
     private Value[] vals;
     private int N;
 
-    public BinarySearchST(int capacity) {
+    public BinarySearchSymbolicTable(int capacity) {
         keys = (Key[]) new Comparable[capacity];
         vals = (Value[]) new Object[capacity];
 
@@ -74,7 +74,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     }
 
     public static void main(String[] args) {
-        BinarySearchST map = new BinarySearchST<String, String>(20);
+        BinarySearchSymbolicTable map = new BinarySearchSymbolicTable<String, String>(20);
         map.put("s1", "s11");
         map.put("s2", "s22");
         map.put("s2", "s33");

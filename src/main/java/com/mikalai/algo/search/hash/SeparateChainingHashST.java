@@ -1,6 +1,6 @@
 package com.mikalai.algo.search.hash;
 
-import com.mikalai.algo.search.SequentialSearchST;
+import com.mikalai.algo.search.SequentialSearchSymbolicTable;
 
 /**
  * Created by mikalai on 15.06.2015.
@@ -9,14 +9,14 @@ public class SeparateChainingHashST<Key, Value> {
 
     private int N;
     private int M;
-    private SequentialSearchST<Key, Value>[] st;
+    private SequentialSearchSymbolicTable<Key, Value>[] st;
 
     public SeparateChainingHashST(int m) {
         M = m;
 
-        st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[M];
+        st = (SequentialSearchSymbolicTable<Key, Value>[]) new SequentialSearchSymbolicTable[M];
         for (int i = 0; i < st.length; i++) {
-            st[i] = new SequentialSearchST();
+            st[i] = new SequentialSearchSymbolicTable();
 
         }
     }

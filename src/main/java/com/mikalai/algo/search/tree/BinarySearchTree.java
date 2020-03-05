@@ -3,7 +3,7 @@ package com.mikalai.algo.search.tree;
 /**
  * Created by mikalai on 31.05.2015.
  */
-public class BST<Key extends Comparable<Key>, Value> {
+public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     private Node root;
 
     private class Node {
@@ -195,7 +195,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public static void main(String[] args) {
-        BST map = new BST<String, String>();
+        BinarySearchTree map = new BinarySearchTree<String, String>();
         map.put("1", "s11");
         map.put("2", "s22");
         map.put("3", "s33");
