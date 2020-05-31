@@ -1,6 +1,7 @@
 package com.mikalai.algo.graph.shortpath.acyclic;
 
 
+import com.mikalai.algo.graph.directed.Topological;
 import com.mikalai.algo.graph.shortpath.DirectedEdge;
 import com.mikalai.algo.graph.shortpath.EdgeWeightedDigraph;
 import com.mikalai.algo.graph.shortpath.ShortPath;
@@ -16,23 +17,11 @@ public class AcyclicShortPath extends ShortPath {
 
     public AcyclicShortPath(EdgeWeightedDigraph g, int s) {
         super(g, s);
-
-
-
         distTo[s] = 0;
 
         Topological top = new Topological(g);
 
-
-        List<Integer> list = new ArrayList<>();
-
         for (int v : top.order) {
-            list.add(v);
-        }
-
-        Collections.reverse(list);
-
-        for (int v : list) {
             relax(g, v);
         }
     }

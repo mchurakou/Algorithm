@@ -1,15 +1,28 @@
 package com.mikalai.algo.graph.directed;
 
+import com.mikalai.algo.graph.shortpath.EdgeWeightedDigraph;
+
+import java.util.Deque;
+
 /**
  * Created by mikalai on 23.08.2015.
  */
 public class Topological {
-    private Iterable<Integer> order;
+    public Deque<Integer> order;
 
     public Topological(Digraph G) {
         DirectedCycle dc = new DirectedCycle(G);
         if (!dc.hasCycle()) {
             DepthFirstOrder dfs = new DepthFirstOrder(G);
+            order = dfs.getReversePost();
+
+        }
+    }
+
+    public Topological(EdgeWeightedDigraph G) {
+        com.mikalai.algo.graph.shortpath.acyclic.DirectedCycle dc = new com.mikalai.algo.graph.shortpath.acyclic.DirectedCycle(G);
+        if (!dc.hasCycle()) {
+            com.mikalai.algo.graph.shortpath.acyclic.DepthFirstOrder dfs = new com.mikalai.algo.graph.shortpath.acyclic.DepthFirstOrder(G);
             order = dfs.getReversePost();
 
         }

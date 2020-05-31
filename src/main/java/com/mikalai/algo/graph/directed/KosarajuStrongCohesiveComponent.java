@@ -14,20 +14,12 @@ public class KosarajuStrongCohesiveComponent {
         marked = new boolean[d.V()];
         id = new int[d.V()];
         DepthFirstOrder order = new DepthFirstOrder(d.reverse());
-        List<Integer> list = new ArrayList<>();
-        order.getReversePost().forEach((el) -> {
-            list.add(el);
-        });
 
-        Collections.reverse(list);
-
-
-        for (int s : list) {
+        for (int s : order.getReversePost()) {
             if (!marked[s]) {
                 dfs(d, s);
                 count++;
             }
-
         }
     }
 

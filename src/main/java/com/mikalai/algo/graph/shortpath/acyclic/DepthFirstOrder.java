@@ -3,6 +3,8 @@ package com.mikalai.algo.graph.shortpath.acyclic;
 import com.mikalai.algo.graph.shortpath.DirectedEdge;
 import com.mikalai.algo.graph.shortpath.EdgeWeightedDigraph;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -11,14 +13,14 @@ import java.util.Stack;
 public class DepthFirstOrder {
     private boolean[] marked;
 
-    public Stack<Integer> getReversePost() {
+    public Deque<Integer> getReversePost() {
         return reversePost;
     }
 
-    private Stack<Integer> reversePost;
+    private Deque<Integer> reversePost;
 
     public DepthFirstOrder(EdgeWeightedDigraph g) {
-        reversePost = new Stack<Integer>();
+        reversePost = new LinkedList<>();
         marked = new boolean[g.getV()];
         for (int v = 0; v < g.getV(); v++)
             if (!marked(v)) dfs(g, v);
@@ -34,7 +36,7 @@ public class DepthFirstOrder {
             }
 
         }
-        reversePost.push(v);
+        reversePost.addFirst(v);
     }
 
     public boolean marked(int w) {

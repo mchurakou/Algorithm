@@ -1,22 +1,25 @@
-package com.mikalai.algo.graph.shortpath;
+package com.mikalai.algo.graph.shortpath.dijkstra;
 
 
 
-import java.util.AbstractMap;
+import com.mikalai.algo.graph.shortpath.DirectedEdge;
+import com.mikalai.algo.graph.shortpath.EdgeWeightedDigraph;
+import com.mikalai.algo.graph.shortpath.ShortPath;
+
 import java.util.Map;
 import java.util.PriorityQueue;
 //works for none negative weighted edges
-public class DijkstraShortPath2 extends ShortPath {
+public class DijkstraShortPath extends ShortPath {
 
     private final PriorityQueue<Map.Entry<Integer, Double>> pq;
 
-    public DijkstraShortPath2(EdgeWeightedDigraph g, int s) {
+    public DijkstraShortPath(EdgeWeightedDigraph g, int s) {
         super(g, s);
         distTo[s] = 0;
 
         pq = new PriorityQueue<>(Map.Entry.comparingByValue());
 
-        pq.add(new AbstractMap.SimpleEntry<>(s, distTo[s]));
+        pq.add(Map.entry(s, distTo[s]));
 
         while (!pq.isEmpty()) {
              relax(pq.poll().getKey());
@@ -30,7 +33,7 @@ public class DijkstraShortPath2 extends ShortPath {
                 distTo[edge.getTo()] = distTo[edge.getFrom()] + edge.getWeight();
                 edgeTo[edge.getTo()] = edge;
 
-                AbstractMap.SimpleEntry<Integer, Double> entry = new AbstractMap.SimpleEntry<>(edge.getTo(), edge.getWeight());
+                Map.Entry<Integer, Double> entry = Map.entry(edge.getTo(), edge.getWeight());
 
                 pq.removeIf(e -> e.getKey() ==  edge.getTo());
                 pq.add(entry);
@@ -58,7 +61,7 @@ public class DijkstraShortPath2 extends ShortPath {
         ewd.addEdge(new DirectedEdge(6, 0, 0.58));
         ewd.addEdge(new DirectedEdge(6, 4, 0.93));
 
-        ShortPath shortPath = new DijkstraShortPath2(ewd, 0);
+        ShortPath shortPath = new DijkstraShortPath(ewd, 0);
 
         System.out.println("DIST:" + shortPath.distTo(6));
         if (shortPath.hasPathTo(6)) {
